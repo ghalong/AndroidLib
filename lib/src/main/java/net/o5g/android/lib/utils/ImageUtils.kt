@@ -24,6 +24,7 @@ import net.o5g.android.lib.RtcBase
 import net.o5g.android.lib.isNullOrBlankReturnNull
 import java.io.File
 import java.io.IOException
+import com.bumptech.glide.request.target.Target
 
 private const val IMAGE_MAX_SIZE = 1024 * 1024
 
