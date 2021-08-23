@@ -32,7 +32,7 @@ object PermissionUtils {
         var allGranted = true
         permissions.forEach {
             if ((PermissionChecker.checkSelfPermission(
-                    RtcBase.application,
+                    LibBase.application,
                     it.permission
                 )) != PermissionChecker.PERMISSION_GRANTED
             ) {

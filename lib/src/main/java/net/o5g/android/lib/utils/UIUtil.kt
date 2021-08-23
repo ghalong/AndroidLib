@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupWindow
 import android.widget.Toast
-import net.o5g.android.lib.RtcBase
+import net.o5g.android.lib.LibBase
 
 
 /**
@@ -30,7 +30,7 @@ object UIUtil {
      * @return
      */
     fun dip2px(dpValue: Float): Int {
-        val scale = RtcBase.application.resources.displayMetrics.density
+        val scale = LibBase.application.resources.displayMetrics.density
         return (dpValue * scale + 0.5f).toInt()
     }
 
@@ -40,7 +40,7 @@ object UIUtil {
      * @return
      */
     fun sp2px(spValue: Float): Int {
-        val fontScale = RtcBase.application.resources.displayMetrics.scaledDensity
+        val fontScale = LibBase.application.resources.displayMetrics.scaledDensity
         return (spValue * fontScale + 0.5f).toInt()
     }
 
@@ -51,7 +51,7 @@ object UIUtil {
      * @return
      */
     fun px2dip(pxValue: Float): Int {
-        val scale = RtcBase.application.resources.displayMetrics.density
+        val scale = LibBase.application.resources.displayMetrics.density
         return (pxValue / scale + 0.5f).toInt()
     }
 
@@ -62,7 +62,7 @@ object UIUtil {
      */
 
     fun px2sp(pxValue: Float): Int {
-        val fontScale = RtcBase.application.resources.displayMetrics.scaledDensity
+        val fontScale = LibBase.application.resources.displayMetrics.scaledDensity
         return (pxValue / fontScale + 0.5f).toInt()
     }
 
@@ -75,7 +75,7 @@ object UIUtil {
      */
     fun showToastWithGravity(text: String, gravity: Int? = null) {
         val call = {
-            val toast = Toast.makeText(RtcBase.application, text, Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(LibBase.application, text, Toast.LENGTH_SHORT)
             if (gravity != null)
                 toast.setGravity(gravity, 0, 0)
             toast.show()
@@ -135,11 +135,11 @@ object UIUtil {
     }
 
     fun getScreenWidth(): Int {
-        return RtcBase.application.resources.displayMetrics.widthPixels
+        return LibBase.application.resources.displayMetrics.widthPixels
     }
 
     fun getScreenHeight(): Int {
-        return RtcBase.application.resources.displayMetrics.heightPixels
+        return LibBase.application.resources.displayMetrics.heightPixels
     }
 
     fun showPopupWindow(

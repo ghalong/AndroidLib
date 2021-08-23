@@ -20,7 +20,7 @@ import java.lang.reflect.Method
  * Desc:    <br>
  * Edit History:<br>
  */
-object RtcBase {
+object LibBase {
     lateinit var application: Application
     lateinit var handler: Handler
     private var hasInit = false
@@ -31,7 +31,7 @@ object RtcBase {
         if (!isMainProcess(application))
             return
         handler = Handler(Looper.myLooper()!!)
-        RtcBase.application = application
+        LibBase.application = application
         CommonUtils.init(application)
         RtcXLogUtil.init(application)
         UIUtil

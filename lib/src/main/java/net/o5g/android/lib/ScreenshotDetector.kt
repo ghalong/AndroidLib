@@ -78,7 +78,7 @@ object ScreenshotDetector {
             if (!allGranted) {
                 if (failCallback == null)
                     UIUtil.showDialog(CommonUtils.currentActivity!!, "请打开存储权限", {}) {
-                        PermissionUtils.openAppSettingsPage(RtcBase.application)
+                        PermissionUtils.openAppSettingsPage(LibBase.application)
                     }
             }
         }
@@ -106,7 +106,7 @@ object ScreenshotDetector {
                 ) {
                     var cursor: Cursor? = null
                     try {
-                        cursor = RtcBase.application.contentResolver.query(
+                        cursor = LibBase.application.contentResolver.query(
                             uri,
                             PROJECTION,
                             null,
@@ -160,7 +160,7 @@ object ScreenshotDetector {
         if (observing)
             return
         contentObserver?.let {
-            RtcBase.application.contentResolver.registerContentObserver(
+            LibBase.application.contentResolver.registerContentObserver(
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, it
             )
             observing = true
@@ -172,7 +172,7 @@ object ScreenshotDetector {
         if (!observing)
             return
         contentObserver?.let {
-            RtcBase.application.contentResolver.unregisterContentObserver(it)
+            LibBase.application.contentResolver.unregisterContentObserver(it)
             observing = false
         }
     }

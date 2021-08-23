@@ -5,7 +5,7 @@ import android.os.SystemClock
 import androidx.core.net.toUri
 import com.ihsanbal.logging.Level
 import com.ihsanbal.logging.LoggingInterceptor
-import net.o5g.android.lib.RtcBase
+import net.o5g.android.lib.LibBase
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.internal.platform.Platform
@@ -44,7 +44,7 @@ object FileUtil {
                     if (!file.exists() || !file.isFile)
                         return@forEach
                     val mediaType = file.absolutePath.toUri()
-                        .getMimeType(RtcBase.application).toMediaType()
+                        .getMimeType(LibBase.application).toMediaType()
                     RtcXLogUtil.logE(
                         "upload attachment $mediaType  size  ${file.length() / 1024.0 / 1024} \n${file.absolutePath}\n"
                     )
@@ -90,9 +90,9 @@ object FileUtil {
         val isRootDirExists =
             Environment.getExternalStorageDirectory().exists()
         dirPath = if (isSdCardExists && isRootDirExists) {
-            RtcBase.application.externalCacheDir!!.absolutePath
+            LibBase.application.externalCacheDir!!.absolutePath
         } else {
-            RtcBase.application.cacheDir.absolutePath
+            LibBase.application.cacheDir.absolutePath
         }
         val appDir = File(dirPath)
         if (!appDir.exists()) {

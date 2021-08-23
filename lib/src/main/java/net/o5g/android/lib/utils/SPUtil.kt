@@ -1,7 +1,7 @@
 package net.o5g.android.lib.utils
 
 import android.content.Context
-import net.o5g.android.lib.RtcBase.application
+import net.o5g.android.lib.LibBase.application
 
 
 /**
@@ -12,7 +12,7 @@ import net.o5g.android.lib.RtcBase.application
  * Edit History:<br>
  */
 
-object RtcSPUtils {
+object SPUtil {
     private const val name = "im_core"
 
     /**

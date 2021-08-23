@@ -24,9 +24,9 @@ internal class PermissionRequestActivity : Activity() {
 
     companion object {
         fun start(requestCount: Int) {
-            RtcBase.application.startActivity(
+            LibBase.application.startActivity(
                 Intent(
-                    RtcBase.application,
+                    LibBase.application,
                     PermissionRequestActivity::class.java
                 ).apply {
                     putExtra(KEY_PERMISSION_COUNT, requestCount)

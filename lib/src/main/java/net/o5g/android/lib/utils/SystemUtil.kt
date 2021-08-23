@@ -1,6 +1,6 @@
 package net.o5g.android.lib.utils
 
-import net.o5g.android.lib.RtcBase.application
+import net.o5g.android.lib.LibBase.application
 import java.util.*
 
 
@@ -11,12 +11,12 @@ import java.util.*
  * Desc:    <br>
  * Edit History:<br>
  */
-object RtcSystemUtil {
+object SystemUtil {
     fun getDeviceId(): String {
-        var id = RtcSPUtils.getValue("KEY_DEVICE_ID", "")
+        var id = SPUtil.getValue("KEY_DEVICE_ID", "")
         if (id == null || id.isEmpty()) {
             id = UUID.randomUUID().toString()
-            RtcSPUtils.setValue("KEY_DEVICE_ID", id)
+            SPUtil.setValue("KEY_DEVICE_ID", id)
         }
         return id
     }

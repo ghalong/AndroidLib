@@ -20,7 +20,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import id.zelory.compressor.Compressor
 import net.o5g.android.lib.R
-import net.o5g.android.lib.RtcBase
+import net.o5g.android.lib.LibBase
 import net.o5g.android.lib.isNullOrBlankReturnNull
 import java.io.File
 import java.io.IOException
@@ -40,7 +40,7 @@ object ImageUtils {
         var minHeight = 0f
         if (maxWith == 0f) {
             val outMetrics = DisplayMetrics();
-            (RtcBase.application.getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay
+            (LibBase.application.getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay
                 .getMetrics(outMetrics);
             val widthPixels = outMetrics.widthPixels
             maxWith = widthPixels * 0.5f
@@ -153,7 +153,7 @@ object ImageUtils {
         else
             background {
                 try {
-                    val img = Glide.with(RtcBase.application).asBitmap().load(url).submit().get()
+                    val img = Glide.with(LibBase.application).asBitmap().load(url).submit().get()
                     ui { call(img) }
                 } catch (e: Exception) {
                     ui {
@@ -272,7 +272,7 @@ object ImageUtils {
         }
 
         var compRatio = 100
-        val compressor = Compressor(RtcBase.application)
+        val compressor = Compressor(LibBase.application)
             .setMaxWidth(realWidth.toInt())
             .setMaxHeight(realHeight.toInt())
             .setCompressFormat(Bitmap.CompressFormat.JPEG)
